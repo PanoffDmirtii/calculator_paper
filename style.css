@@ -1,0 +1,33 @@
+.wrapper {
+  padding: 20px;
+  border: 1px solid green;
+  width: 200px;
+}
+
+.block_1 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid green;
+}
+
+.block_2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid green;
+}
+
+.block_3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid green;
+}
+
+.block_4 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid green;
+}
+
+.block_5 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
