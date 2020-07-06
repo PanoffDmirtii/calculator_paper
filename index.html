@@ -8,80 +8,104 @@
   <body>
     <form>
       <div class="wrapper">
-        <div class="block_1" id="block_1">
+        <div class="block_1" id="block_dpi">
           <span>Выберите тип печати</span>
           <div>
-            <input name="dpi" id="type_dpi_1" type="radio" />
-            <label for="type_dpi_1">Печать 720 dpi</label>
+            <input name="dpi" id="dpi-720" type="radio" />
+            <label for="dpi-720">Печать 720 dpi</label>
           </div>
           <div>
-            <input name="dpi" id="type_dpi_2" type="radio" />
-            <label for="type_dpi_2">Печать 1140 dpi</label>
+            <input name="dpi" id="dpi-1440" type="radio" />
+            <label for="dpi-1440">Печать 1440 dpi</label>
           </div>
         </div>
-        <div class="block_2">
+        <div class="block_2" id="block_paper">
           <span>Выберите Бумагу</span>
           <div>
-            <input name='paper' id="type_paper_1" type="radio" />
-            <label for="type_paper_1">Матовая</label>
+            <input name="paper" id="matte" type="radio" />
+            <label for="matte">Матовая</label>
           </div>
           <div>
-            <input name='paper' id="type_paper_2" type="radio" />
-            <label for="type_paper_2">Глянцевая</label>
-          </div>
-          <div>
-            <input name='paper' id="type_paper_3" type="radio" />
-            <label for="type_paper_3">Без ламината</label>
+            <input name="paper" id="glossy" type="radio" />
+            <label for="glossy">Глянцевая</label>
           </div>
         </div>
-        <div class="block_3">
+        <div id="block-size" class="block_3">
           <span>Выберите Размер</span>
           <div>
-            <input name='size' id="size_1" type="radio" />
-            <label for="size_1">50 х 50</label>
+            <input name="size" id="size_420_594" type="radio" />
+            <label for="size_420_594">420 х 594</label>
           </div>
           <div>
-            <input name='size' id="size_2" type="radio" />
-            <label for="size_2">100 х 100</label>
+            <input name="size" id="size_500_700" type="radio" />
+            <label for="size_500_700">500 х 700</label>
           </div>
           <div>
-            <input name='size' id="size_3" type="radio" />
-            <label for="size_3">150 х 150</label>
+            <input name="size" id="size_700_1000" type="radio" />
+            <label for="size_700_1000">700 х 1000</label>
           </div>
           <div>
-            <input name='size' id="size_4" type="radio" />
-            <label for="size_4">custom</label>
+            <input name="size" id="custom_size" type="radio" />
+            <label for="custom_size">custom</label>
+          </div>
+          <div id="block-custom-size">
+            <input id="custom-size-l-input" type="number" min="10" />
+            <input id="custom-size-w-input" type="number" min="10" />
           </div>
         </div>
-        <div class="block_4">
+        <div id="block-count" class="block_4">
           <span>Выберите Количество</span>
           <div>
-            <input name='count' id="count_1" type="radio" />
-            <label for="count_1">50</label>
+            <input name="count" id="count-1" type="radio" />
+            <label for="count-1">1</label>
           </div>
           <div>
-            <input name='count' id="count_2" type="radio" />
-            <label for="count_2">100</label>
+            <input name="count" id="count-2" type="radio" />
+            <label for="count-2">2</label>
           </div>
           <div>
-            <input name='count' id="count_3" type="radio" />
-            <label for="count_3">300</label>
+            <input name="count" id="count-6" type="radio" />
+            <label for="count-6">6</label>
           </div>
           <div>
-            <input name='count' id="count_4" type="radio" />
-            <label for="count_4">500</label>
+            <input name="count" id="count-10" type="radio" />
+            <label for="count-10">10</label>
           </div>
           <div>
-            <input name='count' id="count_5" type="radio" />
-            <label for="count_5">custom</label>
+            <div>
+              <input name="count" id="count-20" type="radio" />
+              <label for="count-20">20</label>
+            </div>
+            <div>
+              <input name="count" id="count-50" type="radio" />
+              <label for="count-50">50</label>
+            </div>
+            <div>
+              <input name="count" id="count-100" type="radio" />
+              <label for="count-100">100</label>
+            </div>
+            <input name="count" id="custom-count" type="radio" />
+            <label for="custom-count">custom</label>
+          </div>
+          <div id="block-custom-count">
+            <input
+              id="custom-count-input"
+              type="number"
+              min="1"
+              max="1000000"
+              placeholder="Кол-во"
+            />
           </div>
         </div>
-        <div class="block_5"><span>0</span><span>Р</span></div>
+        <div class="block_5">
+          <span id="price"></span>
+        </div>
         <div class="block_6">
           <button>Заказать</button>
         </div>
       </div>
     </form>
+    <script src="./constants.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
   </body>
-  <script type="text/javascript" src="index.js"></script>
 </html>

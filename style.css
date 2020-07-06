@@ -31,3 +31,11 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+#block-custom-size {
+  display: none;
+}
+
+#block-custom-count {
+  display: none;
+}
