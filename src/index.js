@@ -12,7 +12,7 @@ const price = document.getElementById("price");
 const button = document.getElementById("btn-order");
 
 button.onclick = () =>
-  alert(`${activeDpi}, ${activePaper}, ${activeSize}, ${activeCount}`);
+  alert(`${activeDpi}, ${activePaper}, ${activeSize !== CUSTOM ? activeSize : customSizeW.value + "*" + customSizeL.value}, ${activeCount}`);
 
 customSizeW.oninput = () => {
   if (+customSizeW.value > 1000) {
