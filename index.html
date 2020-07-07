@@ -49,8 +49,8 @@
             <label for="custom_size">custom</label>
           </div>
           <div id="block-custom-size">
-            <input id="custom-size-l-input" type="number" min="10" />
-            <input id="custom-size-w-input" type="number" min="10" />
+            <input placeholder="Длина не более 1000мм" id="custom-size-w-input" type="number" min="10" max='1000' />
+            <input placeholder="Высота не более 5000мм" id="custom-size-l-input" type="number" min="10" max="5000"/>
           </div>
         </div>
         <div id="block-count" class="block_4">
@@ -62,10 +62,6 @@
           <div>
             <input name="count" id="count-2" type="radio" />
             <label for="count-2">2</label>
-          </div>
-          <div>
-            <input name="count" id="count-6" type="radio" />
-            <label for="count-6">6</label>
           </div>
           <div>
             <input name="count" id="count-10" type="radio" />
@@ -92,7 +88,7 @@
               id="custom-count-input"
               type="number"
               min="1"
-              max="1000000"
+              max="500"
               placeholder="Кол-во"
             />
           </div>
@@ -101,7 +97,7 @@
           <span id="price"></span>
         </div>
         <div class="block_6">
-          <button>Заказать</button>
+          <button id='btn-order'>Заказать</button>
         </div>
       </div>
     </form>
