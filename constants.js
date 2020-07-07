@@ -20,6 +20,7 @@ const posterSize = {
   size_420_594: _420x594,
   size_500_700: _500x700,
   size_700_1000: _700x1000,
+  custom_size: CUSTOM 
 };
 
 const poster = {

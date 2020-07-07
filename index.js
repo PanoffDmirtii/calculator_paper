@@ -7,6 +7,7 @@ const blockCustomCount = document.getElementById("block-custom-count");
 const blockCustomSize = document.getElementById("block-custom-size");
 const customSizeL = document.getElementById("custom-size-l-input");
 const customSizeW = document.getElementById("custom-size-w-input");
+const customCountInput = document.getElementById("custom-count-input");
 const price = document.getElementById("price");
 const button = document.getElementById("btn-order");
 
@@ -17,15 +18,16 @@ customSizeW.oninput = () => {
   if (+customSizeW.value > 1000) {
     customSizeW.value = 1000
   }
+  caclulatePrice();
 }
 
 customSizeL.oninput = () => {
-  if (+customSizeW.value > 5000) {
-    customSizeW.value = 5000
+  if (+customSizeL.value > 5000) {
+    customSizeL.value = 5000
   }
+  caclulatePrice();
 }
 
-const customCountInput = document.getElementById("custom-count-input");
 customCountInput.oninput = () => {
   activeCount = customCountInput.value;
   caclulatePrice();
@@ -61,11 +63,9 @@ document.getElementById("block-size").addEventListener("click", (event) => {
     if (id === "custom_size") {
       blockCustomSize.style.display = "block";
     } else {
-      activeSize = posterSize[id];
-      console.log(activeSize);
-      
       blockCustomSize.style.display = "none";
     }
+    activeSize = posterSize[id];
     caclulatePrice();
   }
 });
@@ -78,20 +78,16 @@ document.getElementById("block-count").addEventListener("click", (event) => {
       blockCustomCount.style.display = "block";
     } else {
       activeCount = posterCount[id];
-      console.log(activeCount, 3333);
-      
       blockCustomCount.style.display = "none";
     }
+
     caclulatePrice();
   }
 });
 
 function getFactorCount() {
   const obj = poster[activeSize][activeDpi].countFactor;
-  console.log(obj);
-  console.log(activeCount);
-  
-  
+
   if (obj[activeCount]) {
     return obj[activeCount];
   }
@@ -102,20 +98,35 @@ function getFactorCount() {
       return true;
     }
   });
-  return factor;
+  return factor ? factor : obj['100'];
 }
 
-function posterLayout() {
+function getArea() {
+  // mm to m
+  return +customSizeW.value * +customSizeL.value / (1000 * 1000)
+}
+
+function getCostPrice() {
+  const {USD, paperCoast, factorDpi} = poster;
+  const area = getArea();
+  console.log(area, 33333);
+  
+  coast1m2 = activeDpi === DPI_720 ? (USD + paperCoast) * factorDpi[DPI_720] : (USD + paperCoast) * factorDpi[DPI_1440]
+  return area * coast1m2
 }
 
 function caclulatePrice() {
+  console.log(activeSize);
+  
   if (activeDpi && activePaper && activeSize && activeCount) {
-    const coast = poster[activeSize][activeDpi].coast;
-    const countFactor = getFactorCount();
-    console.log(countFactor);
+    const coast = activeSize !== CUSTOM ? poster[activeSize][activeDpi].coast : getCostPrice()
+    console.log(coast, 'coast');
     
+    const countFactor = getFactorCount();
+
     price.innerText =
       Math.ceil(coast * countFactor * activeCount) +
       ` + тубус ${poster.tube * activeCount}`;
   }
 }
+
