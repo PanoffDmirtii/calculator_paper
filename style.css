@@ -25,6 +25,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid green;
+  position: relative;
 }
 
 .block_5 {
@@ -38,4 +39,11 @@
 
 #block-custom-count {
   display: none;
+}
+
+.discount {
+  padding-left: 60px;
+  color: red;
+  position: absolute;
+  right: 20px;
 }

@@ -252,6 +252,18 @@ function getArea() {
   }
 }
 
+function renderDiscount(factor) {
+  let cf = Object.entries(poster[activeSize][activeDpi].countFactor);
+  const discount0 = cf[0][1];
+  cf.forEach((item) => {
+    const id = item[0];
+    document.getElementById(`discount-${item[0]}`).innerText =
+      100 - Math.round((item[1] * 100) / discount0) + '%';
+  });
+  document.getElementById(`discount-custom-count`).innerText =
+    100 - Math.round((factor * 100) / discount0) + '%';
+}
+
 function getOneSquareMeter() {
   const { USD, paperCoast, factorDpi } = poster;
   return activeDpi === DPI_720
@@ -264,9 +276,12 @@ function caclulatePrice() {
     let sum;
     const countFactor = getFactorCount();
     const coast1m2 = getOneSquareMeter();
-    const area = getArea();    
+    const area = getArea();
+    renderDiscount(countFactor);
     sum =
-      area * activeCount < 0.25 ? 344 : Math.ceil(countFactor * activeCount * area * coast1m2);
-    price.innerText = sum;
+      area * activeCount < 0.25
+        ? 344
+        : Math.ceil(countFactor * activeCount * area * coast1m2);
+    price.innerText = `${sum} ₽`;
   }
 }

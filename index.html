@@ -49,8 +49,20 @@
             <label for="custom_size">custom</label>
           </div>
           <div id="block-custom-size">
-            <input placeholder="Длина не более 1000мм" id="custom-size-w-input" type="number" min="10" max='1000' />
-            <input placeholder="Высота не более 5000мм" id="custom-size-l-input" type="number" min="10" max="5000"/>
+            <input
+              placeholder="Длина не более 1000мм"
+              id="custom-size-w-input"
+              type="number"
+              min="10"
+              max="1000"
+            />
+            <input
+              placeholder="Высота не более 5000мм"
+              id="custom-size-l-input"
+              type="number"
+              min="10"
+              max="5000"
+            />
           </div>
         </div>
         <div id="block-count" class="block_4">
@@ -58,30 +70,37 @@
           <div>
             <input name="count" id="count-1" type="radio" />
             <label for="count-1">1</label>
+            <span class="discount" id="discount-1"></span>
           </div>
           <div>
             <input name="count" id="count-2" type="radio" />
             <label for="count-2">2</label>
+            <span class="discount" id="discount-2"></span>
           </div>
           <div>
             <input name="count" id="count-10" type="radio" />
             <label for="count-10">10</label>
+            <span class="discount" id="discount-10"></span>
           </div>
           <div>
             <div>
               <input name="count" id="count-20" type="radio" />
               <label for="count-20">20</label>
+              <span class="discount" id="discount-20"></span>
             </div>
             <div>
               <input name="count" id="count-50" type="radio" />
               <label for="count-50">50</label>
+              <span class="discount" id="discount-50"></span>
             </div>
             <div>
               <input name="count" id="count-100" type="radio" />
               <label for="count-100">100</label>
+              <span class="discount" id="discount-100"></span>
             </div>
             <input name="count" id="custom-count" type="radio" />
             <label for="custom-count">custom</label>
+            <span class="discount" id="discount-custom-count"></span>
           </div>
           <div id="block-custom-count">
             <input
@@ -97,7 +116,7 @@
           <span id="price"></span>
         </div>
         <div class="block_6">
-          <button id='btn-order'>Заказать</button>
+          <button id="btn-order">Заказать</button>
         </div>
       </div>
     </form>
