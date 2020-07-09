@@ -1,125 +1,634 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <form>
-      <div class="wrapper">
-        <div class="block_1" id="block_dpi">
-          <span>Выберите тип печати</span>
-          <div>
-            <input name="dpi" id="dpi-720" type="radio" />
-            <label for="dpi-720">Печать 720 dpi</label>
-          </div>
-          <div>
-            <input name="dpi" id="dpi-1440" type="radio" />
-            <label for="dpi-1440">Печать 1440 dpi</label>
-          </div>
-        </div>
-        <div class="block_2" id="block_paper">
-          <span>Выберите Бумагу</span>
-          <div>
-            <input name="paper" id="matte" type="radio" />
-            <label for="matte">Матовая</label>
-          </div>
-          <div>
-            <input name="paper" id="glossy" type="radio" />
-            <label for="glossy">Глянцевая</label>
-          </div>
-        </div>
-        <div id="block-size" class="block_3">
-          <span>Выберите Размер</span>
-          <div>
-            <input name="size" id="size_420_594" type="radio" />
-            <label for="size_420_594">420 х 594</label>
-          </div>
-          <div>
-            <input name="size" id="size_500_700" type="radio" />
-            <label for="size_500_700">500 х 700</label>
-          </div>
-          <div>
-            <input name="size" id="size_700_1000" type="radio" />
-            <label for="size_700_1000">700 х 1000</label>
-          </div>
-          <div>
-            <input name="size" id="custom_size" type="radio" />
-            <label for="custom_size">custom</label>
-          </div>
-          <div id="block-custom-size">
-            <input
-              placeholder="Длина не более 1000мм"
-              id="custom-size-w-input"
-              type="number"
-              min="10"
-              max="1000"
+<form
+  id="form209674673"
+  name="form209674673"
+  role="form"
+  action="https://forms.tildacdn.com/procces/"
+  method="POST"
+  data-formactiontype="2"
+  data-inputbox=".t-input-group"
+  class="t-form js-form-proccess t-form_inputs-total_5"
+  data-success-callback=""
+  data-success-popup="y"
+  data-error-popup="y"
+>
+  <div
+    class="js-successbox t-form__successbox t-text t-text_sm"
+    style="display: none;"
+  ></div>
+  <div class="t-form__inputsbox">
+    <div
+      class="t-input-group t-input-group_rd"
+      data-input-lid="1531306243545"
+      style="margin-bottom: 20px;"
+    >
+      <div
+        class="t-input-title"
+        data-redactor-toolbar="no"
+        field="nullli_title__1531306243545"
+        style="
+          color: #000;
+          font-weight: 400;
+          font-family: Arial;
+          font-size: 16px;
+          padding-bottom: 5px;
+        "
+      >
+        Выберите тип печати
+      </div>
+      <div class="t-input-block">
+        <div class="t-radio__wrapper">
+          <label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeDpi"
+              value="Печать 720 dpi"
+              data-tilda-req="1"
+              class="t-radio js-tilda-rule"
             />
-            <input
-              placeholder="Высота не более 5000мм"
-              id="custom-size-l-input"
-              type="number"
-              min="10"
-              max="5000"
+            <div class="t-radio__indicator"></div>
+            Печать 720 dpi</label
+          ><label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeDpi"
+              value="Печать 1440 dpi"
+              data-tilda-req="1"
+              class="t-radio js-tilda-rule"
             />
-          </div>
+            <div class="t-radio__indicator"></div>
+            Печать 1440 dpi</label
+          >
         </div>
-        <div id="block-count" class="block_4">
-          <span>Выберите Количество</span>
-          <div>
-            <input name="count" id="count-1" type="radio" />
-            <label for="count-1">1</label>
-            <span class="discount" id="discount-1"></span>
-          </div>
-          <div>
-            <input name="count" id="count-2" type="radio" />
-            <label for="count-2">2</label>
-            <span class="discount" id="discount-2"></span>
-          </div>
-          <div>
-            <input name="count" id="count-10" type="radio" />
-            <label for="count-10">10</label>
-            <span class="discount" id="discount-10"></span>
-          </div>
-          <div>
-            <div>
-              <input name="count" id="count-20" type="radio" />
-              <label for="count-20">20</label>
-              <span class="discount" id="discount-20"></span>
-            </div>
-            <div>
-              <input name="count" id="count-50" type="radio" />
-              <label for="count-50">50</label>
-              <span class="discount" id="discount-50"></span>
-            </div>
-            <div>
-              <input name="count" id="count-100" type="radio" />
-              <label for="count-100">100</label>
-              <span class="discount" id="discount-100"></span>
-            </div>
-            <input name="count" id="custom-count" type="radio" />
-            <label for="custom-count">custom</label>
-            <span class="discount" id="discount-custom-count"></span>
-          </div>
-          <div id="block-custom-count">
-            <input
-              id="custom-count-input"
-              type="number"
-              min="1"
-              max="500"
-              placeholder="Кол-во"
+        <div class="t-input-error"></div>
+      </div>
+    </div>
+    <div
+      class="t-input-group t-input-group_rd"
+      data-input-lid="1594222211293"
+      style="margin-bottom: 20px;"
+    >
+      <div
+        class="t-input-title"
+        data-redactor-toolbar="no"
+        field="nullli_title__1594222211293"
+        style="
+          color: #000;
+          font-weight: 400;
+          font-family: Arial;
+          font-size: 16px;
+          padding-bottom: 5px;
+        "
+      >
+        Выберите бумагу
+      </div>
+      <div class="t-input-block">
+        <div class="t-radio__wrapper">
+          <label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activePaper"
+              value="Матовая"
+              data-tilda-req="1"
+              class="t-radio js-tilda-rule"
             />
-          </div>
+            <div class="t-radio__indicator"></div>
+            Матовая</label
+          ><label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activePaper"
+              value="Глянцевая"
+              data-tilda-req="1"
+              class="t-radio js-tilda-rule"
+            />
+            <div class="t-radio__indicator"></div>
+            Глянцевая</label
+          >
         </div>
-        <div class="block_5">
-          <span id="price"></span>
+        <div class="t-input-error"></div>
+      </div>
+    </div>
+    <div
+      class="t-input-group t-input-group_rd"
+      data-input-lid="1594222266123"
+      style="margin-bottom: 20px;"
+    >
+      <div
+        class="t-input-title"
+        data-redactor-toolbar="no"
+        field="nullli_title__1594222266123"
+        style="
+          color: #000;
+          font-weight: 400;
+          font-family: Arial;
+          font-size: 16px;
+          padding-bottom: 5px;
+        "
+      >
+        Выберите размер
+      </div>
+      <div class="t-input-block">
+        <div class="t-radio__wrapper">
+          <label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeSize"
+              value="420мм х 594мм"
+              class="t-radio js-tilda-rule"
+            />
+            <div class="t-radio__indicator"></div>
+            420мм х 594мм</label
+          ><label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeSize"
+              value="500мм х 700мм"
+              class="t-radio js-tilda-rule"
+            />
+            <div class="t-radio__indicator"></div>
+            500мм х 700мм</label
+          ><label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeSize"
+              value="700мм х 1000мм"
+              class="t-radio js-tilda-rule"
+            />
+            <div class="t-radio__indicator"></div>
+            700мм х 1000мм</label
+          ><label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeSize"
+              value="custom"
+              class="t-radio js-tilda-rule"
+            />
+            <div class="t-radio__indicator"></div>
+            custom</label
+          >
         </div>
-        <div class="block_6">
-          <button id="btn-order">Заказать</button>
+        <div class="t-input-error"></div>
+      </div>
+    </div>
+    <input type="hidden" name="customSizeW" tabindex="-1" value="" /><input
+      type="hidden"
+      name="customSizeL"
+      tabindex="-1"
+      value=""
+    />
+    <div
+      class="t-input-group t-input-group_rd"
+      data-input-lid="1594222523773"
+      style="margin-bottom: 20px;"
+    >
+      <div
+        class="t-input-title"
+        data-redactor-toolbar="no"
+        field="nullli_title__1594222523773"
+        style="
+          color: #000;
+          font-weight: 400;
+          font-family: Arial;
+          font-size: 16px;
+          padding-bottom: 5px;
+        "
+      >
+        Выберите количество
+      </div>
+      <div class="t-input-block">
+        <div class="t-radio__wrapper">
+          <label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeCount"
+              value="1"
+              class="t-radio js-tilda-rule"
+            />
+            <div class="t-radio__indicator"></div>
+            1</label
+          ><label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeCount"
+              value="2"
+              class="t-radio js-tilda-rule"
+            />
+            <div class="t-radio__indicator"></div>
+            2</label
+          ><label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeCount"
+              value="10"
+              class="t-radio js-tilda-rule"
+            />
+            <div class="t-radio__indicator"></div>
+            10</label
+          ><label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeCount"
+              value="20"
+              class="t-radio js-tilda-rule"
+            />
+            <div class="t-radio__indicator"></div>
+            20</label
+          ><label
+            class="t-radio__control"
+            style="
+              color: #000;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: Arial;
+            "
+            ><input
+              type="radio"
+              name="activeCount"
+              value="custom"
+              class="t-radio js-tilda-rule"
+            />
+            <div class="t-radio__indicator"></div>
+            custom</label
+          >
+        </div>
+        <div class="t-input-error"></div>
+      </div>
+    </div>
+    <input type="hidden" name="customCountInput" tabindex="-1" value="" /><input
+      type="hidden"
+      name="caclulatePrice"
+      tabindex="-1"
+      value=""
+    />
+    <div
+      class="t-input-group t-input-group_fr"
+      data-input-lid="1594222970629"
+      style="margin-bottom: 20px;"
+    >
+      <div class="t-input-block">
+        <input
+          type="hidden"
+          class="t-calc__hiddeninput js-tilda-rule"
+          name="sum"
+          tabindex="-1"
+          value="0"
+        />
+        <div class="t-calc__wrapper t-name t-name_md" style="color: #000;">
+          <span class="t-calc" data-calc-expr="caclulatePrice">0</span>
+        </div>
+        <script type="text/javascript">
+          $(document).ready(function () {
+            $.cachedScript(
+              "https://static.tildacdn.com/js/tilda-calc-1.0.min.js"
+            ).done(function (script, textStatus) {
+              setTimeout(function () {
+                try {
+                  tcalc__init("209674673", "1594222970629");
+                } catch (err) {
+                  console.log(err);
+                }
+              }, 500);
+            });
+          });
+        </script>
+        <input
+          type="hidden"
+          class="t-calc__hidden__prod_title"
+          name="prod_title"
+          value="undefined"
+          tabindex="-1"
+        /><input
+          type="hidden"
+          class="t-calc__hidden__prod_img"
+          name="prod_img"
+          value="undefined"
+          tabindex="-1"
+        />
+        <div class="t-input-error"></div>
+      </div>
+    </div>
+    <div class="t-form__errorbox-middle">
+      <div
+        class="js-errorbox-all t-form__errorbox-wrapper"
+        style="display: none;"
+      >
+        <div class="t-form__errorbox-text t-text t-text_xs">
+          <p class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
+          <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
+          <p
+            class="t-form__errorbox-item js-rule-error js-rule-error-email"
+          ></p>
+          <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
+          <p
+            class="t-form__errorbox-item js-rule-error js-rule-error-phone"
+          ></p>
+          <p
+            class="t-form__errorbox-item js-rule-error js-rule-error-string"
+          ></p>
+        </div>
+        <div class="tn-form__errorbox-close js-errorbox-close">
+          <div
+            class="tn-form__errorbox-close-line tn-form__errorbox-close-line-left"
+          ></div>
+          <div
+            class="tn-form__errorbox-close-line tn-form__errorbox-close-line-right"
+          ></div>
         </div>
       </div>
-    </form>
-    <script type="text/javascript" src="./src/index.js"></script>
-  </body>
-</html>
+      <style>
+        .tn-atom .t-input-error {
+          position: absolute;
+          color: red;
+          background-color: #fff;
+          padding: 8px 10px;
+          border-radius: 2px;
+          z-index: 1;
+          margin-top: 5px;
+          left: 0px;
+          box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.2);
+        }
+        .tn-atom .t-input-error:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 0;
+          border: solid transparent;
+          border-width: 6px;
+          top: -12px;
+          left: 15%;
+          border-bottom-color: #fff;
+        }
+        .tn-form__errorbox-close {
+          height: 14px;
+          position: absolute;
+          right: 8px;
+          top: 8px;
+          width: 14px;
+          cursor: pointer;
+        }
+        .tn-form__errorbox-close-line {
+          background: #fff none repeat scroll 0 0;
+          height: 1px;
+          left: 0;
+          margin-top: -1px;
+          position: absolute;
+          top: 50%;
+          width: 100%;
+        }
+        .tn-form__errorbox-close-line-left {
+          transform: rotate(45deg);
+        }
+        .tn-form__errorbox-close-line-right {
+          transform: rotate(-45deg);
+        }
+        .tn-atom .t-form__errorbox-wrapper,
+        .tn-form__errorbox-popup {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          z-index: 10000;
+          max-width: 400px;
+          min-width: 260px;
+          width: auto;
+          box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+          border-radius: 3px;
+          text-align: left;
+          font-family: Arial, sans-serf;
+          background: #f95d51;
+          padding: 10px;
+        }
+        .tn-atom .js-error-control-box .t-radio__wrapper,
+        .tn-atom .js-error-control-box .t-checkbox__control {
+          padding: 3px;
+          margin-top: -3px;
+        }
+        @media screen and (max-width: 480px) {
+          .tn-atom .t-form__errorbox-wrapper,
+          .tn-form__errorbox-popup {
+            max-width: 280px;
+          }
+        }
+      </style>
+      <script>
+        $(".tn-atom .js-errorbox-close").click(function () {
+          $(this).parent().css("display", "none");
+        });
+      </script>
+    </div>
+    <div class="tn-form__submit" style="">
+      <button
+        type=""
+        class="t-submit"
+        style="
+          color: #fff;
+          background-color: #000;
+          font-weight: 600;
+          font-size: 14px;
+          width: 160px;
+          height: 50px;
+          padding: 0 15px;
+          display: block;
+        "
+        href="#order:undefined=NaN:::image=undefined"
+      >
+        SUBMIT
+      </button>
+    </div>
+  </div>
+  <div class="t-form__errorbox-bottom">
+    <div
+      class="js-errorbox-all t-form__errorbox-wrapper"
+      style="display: none;"
+    >
+      <div class="t-form__errorbox-text t-text t-text_xs">
+        <p class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
+        <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
+        <p class="t-form__errorbox-item js-rule-error js-rule-error-email"></p>
+        <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
+        <p class="t-form__errorbox-item js-rule-error js-rule-error-phone"></p>
+        <p class="t-form__errorbox-item js-rule-error js-rule-error-string"></p>
+      </div>
+      <div class="tn-form__errorbox-close js-errorbox-close">
+        <div
+          class="tn-form__errorbox-close-line tn-form__errorbox-close-line-left"
+        ></div>
+        <div
+          class="tn-form__errorbox-close-line tn-form__errorbox-close-line-right"
+        ></div>
+      </div>
+    </div>
+    <style>
+      .tn-atom .t-input-error {
+        position: absolute;
+        color: red;
+        background-color: #fff;
+        padding: 8px 10px;
+        border-radius: 2px;
+        z-index: 1;
+        margin-top: 5px;
+        left: 0px;
+        box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.2);
+      }
+      .tn-atom .t-input-error:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: solid transparent;
+        border-width: 6px;
+        top: -12px;
+        left: 15%;
+        border-bottom-color: #fff;
+      }
+      .tn-form__errorbox-close {
+        height: 14px;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 14px;
+        cursor: pointer;
+      }
+      .tn-form__errorbox-close-line {
+        background: #fff none repeat scroll 0 0;
+        height: 1px;
+        left: 0;
+        margin-top: -1px;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+      }
+      .tn-form__errorbox-close-line-left {
+        transform: rotate(45deg);
+      }
+      .tn-form__errorbox-close-line-right {
+        transform: rotate(-45deg);
+      }
+      .tn-atom .t-form__errorbox-wrapper,
+      .tn-form__errorbox-popup {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 10000;
+        max-width: 400px;
+        min-width: 260px;
+        width: auto;
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        text-align: left;
+        font-family: Arial, sans-serf;
+        background: #f95d51;
+        padding: 10px;
+      }
+      .tn-atom .js-error-control-box .t-radio__wrapper,
+      .tn-atom .js-error-control-box .t-checkbox__control {
+        padding: 3px;
+        margin-top: -3px;
+      }
+      @media screen and (max-width: 480px) {
+        .tn-atom .t-form__errorbox-wrapper,
+        .tn-form__errorbox-popup {
+          max-width: 280px;
+        }
+      }
+    </style>
+    <script>
+      $(".tn-atom .js-errorbox-close").click(function () {
+        $(this).parent().css("display", "none");
+      });
+    </script>
+  </div>
+  <div style="position: absolute; left: -5000px; bottom: 0;">
+    <input
+      type="text"
+      name="form-spec-comments"
+      value="Its good"
+      class="js-form-spec-comments"
+      tabindex="-1"
+    />
+  </div>
+  <script src="./src/index.js"></script>
+</form>

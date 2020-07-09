@@ -6,20 +6,37 @@ const DPI_720 = "720";
 const DPI_1440 = "1440";
 const CUSTOM = "CUSTOM";
 
+const VALUE_720 = "Печать 720 dpi";
+const VALUE_1440 = "Печать 1440 dpi";
+
+const VALUE_MATTE = "Матовая";
+const VALUE_GLOSSY = "Глянцевая";
+
+const VALUE_420_594 = "420мм х 594мм";
+const VALUE_500_700 = "500мм х 700мм";
+const VALUE_700_1000 = "700мм х 1000мм";
+const VALUE_CUSTOM_SIZE = "custom";
+
+const VALUE_1 = "1";
+const VALUE_2 = "2";
+const VALUE_10 = "10";
+const VALUE_20 = "20";
+const VALUE_CUSTOM_COUNT = "custom";
+
+const inputValues = {};
+
 const posterCount = {
-  "count-1": 1,
-  "count-2": 2,
-  "count-10": 10,
-  "count-20": 20,
-  "count-50": 50,
-  "count-100": 100,
-  "custom-count": null,
+  [VALUE_1]: 1,
+  [VALUE_2]: 2,
+  [VALUE_10]: 10,
+  [VALUE_20]: 20,
+  [VALUE_CUSTOM_COUNT]: null,
 };
 
 const posterSize = {
-  size_420_594: _420x594,
-  size_500_700: _500x700,
-  size_700_1000: _700x1000,
+  [VALUE_420_594]: _420x594,
+  [VALUE_500_700]: _500x700,
+  [VALUE_700_1000]: _700x1000,
   custom_size: CUSTOM,
 };
 
@@ -135,25 +152,60 @@ const poster = {
   },
 };
 
+let customSizeL = document.getElementsByName("customSizeL")[0];
+let customSizeW = document.getElementsByName("customSizeW")[0];
+customSizeL.min = 150;
+customSizeL.value = 150;
+customSizeL.max = 5000;
+customSizeW.min = 150;
+customSizeW.value = 150;
+customSizeW.max = 1000;
+
+let customCountInput = document.getElementsByName("customCountInput")[0];
+customCountInput.min = 1;
+customCountInput.max = 500;
+customCountInput.value = 1;
+
+let price = document.getElementsByClassName("t-calc")[0];
+let button = document.getElementsByClassName('t-submit')[0];
+
+let blockDpi;
+let blockPaper;
+let blockSize;
+let blockCount;
+
+const block = document.querySelector(
+  "form#form209674673 div.t-form__inputsbox"
+);
+
+[...block.children].forEach((el) => {
+  const dataSet = el.dataset.inputLid;
+  if (dataSet === "1531306243545") {
+    blockDpi = el;
+  } else if (dataSet === "1594222211293") {
+    blockPaper = el;
+  } else if (dataSet === "1594222266123") {
+    blockSize = el;
+  } else if (dataSet === "1594222523773") {
+    blockCount = el;
+  } else if (dataSet === "1594222970629") {
+    price = el;
+  }
+});
+
+let activeSizeL = 150;
+let activeSizeW = 150;
 let activeDpi;
 let activePaper;
 let activeSize;
-let activeCount;
-
-const blockCustomCount = document.getElementById("block-custom-count");
-const blockCustomSize = document.getElementById("block-custom-size");
-const customSizeL = document.getElementById("custom-size-l-input");
-const customSizeW = document.getElementById("custom-size-w-input");
-const customCountInput = document.getElementById("custom-count-input");
-const price = document.getElementById("price");
-const button = document.getElementById("btn-order");
+let activeCount = 1;
 
 button.onclick = () =>
   alert(
     `${activeDpi}, ${activePaper}, ${
       activeSize !== CUSTOM
         ? activeSize
-        : customSizeW.value + "*" + customSizeL.value
+        : activeSizeW + "*" + activeSizeLL.value
     }, ${activeCount}`
   );
 
@@ -161,6 +213,7 @@ customSizeW.oninput = () => {
   if (+customSizeW.value > 1000) {
     customSizeW.value = 1000;
   }
+  activeSizeW = 1000;
   caclulatePrice();
 };
 
@@ -168,62 +221,62 @@ customSizeL.oninput = () => {
   if (+customSizeL.value > 5000) {
     customSizeL.value = 5000;
   }
+  activeSizeL = 5000;
   caclulatePrice();
 };
 
 customCountInput.oninput = () => {
+  if (+customCountInput.value > 10000) {
+    customCountInput.value = 10000
+  }
   activeCount = customCountInput.value;
   caclulatePrice();
 };
 
-document.getElementById("block_dpi").addEventListener("click", (event) => {
-  const id = event.target.id;
-  if (id === "dpi-720") {
+blockDpi.addEventListener("click", (event) => {
+  const value = event.target.value;
+  if (value === VALUE_720) {
     activeDpi = DPI_720;
-  } else if (id === "dpi-1440") {
+  } else if (value === VALUE_1440) {
     activeDpi = DPI_1440;
   }
   caclulatePrice();
 });
 
-document.getElementById("block_paper").addEventListener("click", (event) => {
-  const id = event.target.id;
-  if (id === "matte") {
-    activePaper = "matte";
-  } else if (id === "glossy") {
-    activePaper = "glossy";
+blockPaper.addEventListener("click", (event) => {
+  const value = event.target.value;
+  if (value === VALUE_MATTE) {
+    activePaper = VALUE_MATTE;
+  } else if (value === VALUE_GLOSSY) {
+    activePaper = VALUE_GLOSSY;
   }
   caclulatePrice();
 });
 
-document.getElementById("block-size").addEventListener("click", (event) => {
-  const { id, tagName } = event.target;
-  if (id === "custom-size-l-input" || id === "custom-size-w-input")
-    return false;
-
-  if (tagName === "INPUT" || tagName === "LABEL") {
-    if (id === "custom_size") {
-      blockCustomSize.style.display = "block";
-    } else {
-      blockCustomSize.style.display = "none";
-    }
-    activeSize = posterSize[id];
+blockSize.addEventListener("click", (event) => {
+  const value = event.target.value;
+  if (value === VALUE_CUSTOM_SIZE) {
+    customSizeL.type = "number";
+    customSizeW.type = "number";
+    activeSize = CUSTOM;
+  } else {
+    customSizeL.type = "hidden";
+    customSizeW.type = "hidden";
+    activeSize = posterSize[value];
     caclulatePrice();
   }
 });
 
-document.getElementById("block-count").addEventListener("click", (event) => {
-  const { id, tagName } = event.target;
-  if (id === "custom-count-input") return false;
-  if (tagName === "INPUT" || tagName === "LABEL") {
-    if (id === "custom-count") {
-      blockCustomCount.style.display = "block";
-    } else {
-      activeCount = posterCount[id];
-      blockCustomCount.style.display = "none";
-    }
-    caclulatePrice();
+blockCount.addEventListener("click", (event) => {
+  const value = event.target.value;
+  if (value === VALUE_CUSTOM_COUNT) {
+    customCountInput.type = "number";
+    activeCount = customCountInput.value
+  } else {
+    customCountInput.type = "hidden";
+    activeCount = posterCount[value];
   }
+  caclulatePrice();
 });
 
 function getFactorCount() {
@@ -242,9 +295,8 @@ function getFactorCount() {
 }
 
 function getArea() {
-  // mm to m
   if (activeSize === CUSTOM) {
-    return (+customSizeW.value * +customSizeL.value) / (1000 * 1000);
+    return (activeSizeL * activeSizeW) / (1000 * 1000);
   } else {
     return (
       (poster[activeSize].width * poster[activeSize].length) / (1000 * 1000)
@@ -258,10 +310,10 @@ function renderDiscount(factor) {
   cf.forEach((item) => {
     const id = item[0];
     document.getElementById(`discount-${item[0]}`).innerText =
-      100 - Math.round((item[1] * 100) / discount0) + '%';
+      100 - Math.round((item[1] * 100) / discount0) + "%";
   });
   document.getElementById(`discount-custom-count`).innerText =
-    100 - Math.round((factor * 100) / discount0) + '%';
+    100 - Math.round((factor * 100) / discount0) + "%";
 }
 
 function getOneSquareMeter() {
@@ -277,7 +329,7 @@ function caclulatePrice() {
     const countFactor = getFactorCount();
     const coast1m2 = getOneSquareMeter();
     const area = getArea();
-    renderDiscount(countFactor);
+    // renderDiscount(countFactor);
     sum =
       area * activeCount < 0.25
         ? 344
